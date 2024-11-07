@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BA9857D-8602-4E5F-BC8C-8D4BE21369AA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{F05C7F97-344E-402A-B626-7AC62BF3DA8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FazendaAPI", "FazendaAPI\FazendaAPI.csproj", "{0FE69D5B-8BD4-4A78-A27D-1B364248B922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F05C7F97-344E-402A-B626-7AC62BF3DA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05C7F97-344E-402A-B626-7AC62BF3DA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05C7F97-344E-402A-B626-7AC62BF3DA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05C7F97-344E-402A-B626-7AC62BF3DA8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE69D5B-8BD4-4A78-A27D-1B364248B922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE69D5B-8BD4-4A78-A27D-1B364248B922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE69D5B-8BD4-4A78-A27D-1B364248B922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE69D5B-8BD4-4A78-A27D-1B364248B922}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3BBBD7E-CD5B-4945-B763-EE0226324CB6}
+	EndGlobalSection
+EndGlobal

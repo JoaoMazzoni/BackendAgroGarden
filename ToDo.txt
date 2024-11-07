@@ -1,0 +1,28 @@
+
+
+
+PRÓXIMOS A SEREM FEITOS
+
+- Controller de Cadastro de Funcionarios (Usuarios)
+- Controller Vendas
+- Alterar método PUT para permitir alteração de status através dele (TODAS AS CONTROLLERS - Onde a Key é fornecido por Input e nao gerada automatica
+como Auto incremento ou guid)
+(FEITAS: Fornecedores, Clientes)
+
+
+
+REGRAS VENDA
+
+- Vendas não podem serem alteradas (não vai existir metodo put)
+- Vendas nao podem serem feitas com produtos vencidos
+- Vendas nao podem serem feitas com produtos zerados
+- Vendas nao podem serem feitas para clientes inativados
+- A data da venda não pode ser maior ou menor que o dia atual
+- Vendas nao podem serem feitas com uma quantidade maior do que a quantidade
+disponivel no lote do produto. 
+- Uma venda pode ter mais de um tipo de produto (List)
+- Se uma venda for deletada (delete) ela deve ter seu Status alterado 
+para "Cancelada", ela não é removida da tabela.
+- Se uma venda for deletada, a quantidade de produtos que estavam na venda 
+devem ser restaurados(voltarem para o banco de dados no seu respectivo lote)
+
