@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FazendaAPI.Migrations
 {
     [DbContext(typeof(FazendaAPIContext))]
-    [Migration("20240928190905_InitialMigration")]
+    [Migration("20241122170717_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,58 @@ namespace FazendaAPI.Migrations
                     b.HasIndex("EnderecoId");
 
                     b.ToTable("Fornecedor");
+
+                    b.HasData(
+                        new
+                        {
+                            CNPJ = "12.345.678/0001-99",
+                            Email = "contato@jardinsehortas.com",
+                            EnderecoId = "14820768140",
+                            NomeDoFornecedor = "Jardins & Hortas",
+                            Status = "Ativo",
+                            Telefone = "16 98765-4321",
+                            TipoDeFornecimento = "Adubo"
+                        },
+                        new
+                        {
+                            CNPJ = "98.765.432/0001-00",
+                            Email = "comercial@fazendaverde.com",
+                            EnderecoId = "148211642500",
+                            NomeDoFornecedor = "Fazenda Verde",
+                            Status = "Ativo",
+                            Telefone = "16 99988-7766",
+                            TipoDeFornecimento = "Agrotoxico"
+                        },
+                        new
+                        {
+                            CNPJ = "11.223.344/0001-55",
+                            Email = "sales@pomares.com",
+                            EnderecoId = "159970101264",
+                            NomeDoFornecedor = "Pomares",
+                            Status = "Inativo",
+                            Telefone = "16 99555-3322",
+                            TipoDeFornecimento = "Geral"
+                        },
+                        new
+                        {
+                            CNPJ = "55.667.788/0001-22",
+                            Email = "info@farmaciavegetal.com",
+                            EnderecoId = "15997060350",
+                            NomeDoFornecedor = "Farmácia Vegetal",
+                            Status = "Ativo",
+                            Telefone = "16 94444-7777",
+                            TipoDeFornecimento = "Adubo"
+                        },
+                        new
+                        {
+                            CNPJ = "22.334.455/0001-88",
+                            Email = "contato@ecogardensupply.com",
+                            EnderecoId = "15997088123",
+                            NomeDoFornecedor = "EcoGarden Supply",
+                            Status = "Ativo",
+                            Telefone = "16 93333-5555",
+                            TipoDeFornecimento = "Agrotoxico"
+                        });
                 });
 
             modelBuilder.Entity("Insumo", b =>
@@ -71,7 +123,8 @@ namespace FazendaAPI.Migrations
                     b.Property<DateTime>("DataValidade")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FornecedorCNPJ")
+                    b.Property<string>("FornecedorId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Funcao")
@@ -94,9 +147,71 @@ namespace FazendaAPI.Migrations
 
                     b.HasKey("CodigoLote");
 
-                    b.HasIndex("FornecedorCNPJ");
+                    b.HasIndex("FornecedorId");
 
                     b.ToTable("Insumo");
+
+                    b.HasData(
+                        new
+                        {
+                            CodigoLote = "A84DEF14",
+                            DataEntrada = new DateTime(2024, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataValidade = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FornecedorId = "12.345.678/0001-99",
+                            Funcao = "Fertilizante",
+                            MililitrosAtual = 800,
+                            NomeDoInsumo = "EcoFert Plus",
+                            QuantidadeEntrada = 1000,
+                            Status = "Ativo"
+                        },
+                        new
+                        {
+                            CodigoLote = "FDDC48C0",
+                            DataEntrada = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataValidade = new DateTime(2026, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FornecedorId = "98.765.432/0001-00",
+                            Funcao = "Agrotoxico",
+                            MililitrosAtual = 450,
+                            NomeDoInsumo = "BioSafe Agro",
+                            QuantidadeEntrada = 500,
+                            Status = "Inativo"
+                        },
+                        new
+                        {
+                            CodigoLote = "00F9C277",
+                            DataEntrada = new DateTime(2024, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataValidade = new DateTime(2026, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FornecedorId = "11.223.344/0001-55",
+                            Funcao = "Adubo",
+                            MililitrosAtual = 1800,
+                            NomeDoInsumo = "AgroNutri Organico",
+                            QuantidadeEntrada = 2000,
+                            Status = "Ativo"
+                        },
+                        new
+                        {
+                            CodigoLote = "78ECB8BE",
+                            DataEntrada = new DateTime(2024, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataValidade = new DateTime(2025, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FornecedorId = "55.667.788/0001-22",
+                            Funcao = "Fertilizante",
+                            MililitrosAtual = 1200,
+                            NomeDoInsumo = "SustainaFert Natural",
+                            QuantidadeEntrada = 1500,
+                            Status = "Ativo"
+                        },
+                        new
+                        {
+                            CodigoLote = "517F3101",
+                            DataEntrada = new DateTime(2024, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataValidade = new DateTime(2027, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FornecedorId = "22.334.455/0001-88",
+                            Funcao = "Agrotoxico",
+                            MililitrosAtual = 750,
+                            NomeDoInsumo = "PureSafe Agrotoxico",
+                            QuantidadeEntrada = 800,
+                            Status = "Ativo"
+                        });
                 });
 
             modelBuilder.Entity("Models.AplicacaoInsumo", b =>
@@ -147,6 +262,7 @@ namespace FazendaAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EnderecoId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RazaoSocial")
@@ -166,6 +282,53 @@ namespace FazendaAPI.Migrations
                     b.HasIndex("EnderecoId");
 
                     b.ToTable("Cliente");
+
+                    b.HasData(
+                        new
+                        {
+                            CNPJ = "12.345.678/0001-99",
+                            Email = "contato@mercadoverde.com.br",
+                            EnderecoId = "14820768140",
+                            RazaoSocial = "Mercado Verde",
+                            Status = "Ativo",
+                            Telefone = "(11) 3456-7890"
+                        },
+                        new
+                        {
+                            CNPJ = "98.765.432/0001-00",
+                            Email = "contato@hortifrutiecia.com.br",
+                            EnderecoId = "148211642500",
+                            RazaoSocial = "Hortifruti & Cia",
+                            Status = "Ativo",
+                            Telefone = "(21) 99876-5432"
+                        },
+                        new
+                        {
+                            CNPJ = "11.223.344/0001-55",
+                            Email = "contato@varejaodaterra.com.br",
+                            EnderecoId = "159970101264",
+                            RazaoSocial = "Varejão da Terra",
+                            Status = "Ativo",
+                            Telefone = "(31) 3333-5555"
+                        },
+                        new
+                        {
+                            CNPJ = "22.334.455/0001-88",
+                            Email = "contato@supermacadocampo.com.br",
+                            EnderecoId = "15997060350",
+                            RazaoSocial = "Supermercado do Campo",
+                            Status = "Ativo",
+                            Telefone = "(41) 4567-8901"
+                        },
+                        new
+                        {
+                            CNPJ = "24.584.762/0001-12",
+                            Email = "contato@jardimhortalicas.com.br",
+                            EnderecoId = "15997060350",
+                            RazaoSocial = "Jardim das Hortaliças",
+                            Status = "Ativo",
+                            Telefone = "(41) 4567-8901"
+                        });
                 });
 
             modelBuilder.Entity("Models.Colheita", b =>
@@ -232,6 +395,85 @@ namespace FazendaAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Endereco");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "14820768140",
+                            Bairro = "COHAB",
+                            CEP = "14820-768",
+                            Cidade = "Américo Brasiliense",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "140",
+                            Rua = "Rua Itirapina"
+                        },
+                        new
+                        {
+                            Id = "148211642500",
+                            Bairro = "Jardim Santa Terezinha",
+                            CEP = "14821-164",
+                            Cidade = "Américo Brasiliense",
+                            Complemento = "Mansão",
+                            Estado = "SP",
+                            Numero = "2500",
+                            Rua = "Rua Alan Gustavo Brizolari"
+                        },
+                        new
+                        {
+                            Id = "159970101264",
+                            Bairro = "Jardim Alvorada",
+                            CEP = "15997-010",
+                            Cidade = "Matão",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "1264",
+                            Rua = "Rua Coronel Leão Pio de Freitas"
+                        },
+                        new
+                        {
+                            Id = "15997060350",
+                            Bairro = "Vila Guarani",
+                            CEP = "15997-060",
+                            Cidade = "Matão",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "350",
+                            Rua = "Avenida Toledo Malta"
+                        },
+                        new
+                        {
+                            Id = "15997088123",
+                            Bairro = "Jardim do Bosque",
+                            CEP = "15997-088",
+                            Cidade = "Matão",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "123",
+                            Rua = "Avenida Minas Gerais"
+                        },
+                        new
+                        {
+                            Id = "15997440120",
+                            Bairro = "Jardim Novo Mundo",
+                            CEP = "15997-440",
+                            Cidade = "Matão",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "120",
+                            Rua = "Rua Jovelino Constantino"
+                        },
+                        new
+                        {
+                            Id = "15993081140",
+                            Bairro = "Residencial Olivio Benassi",
+                            CEP = "15993-081",
+                            Cidade = "Matão",
+                            Complemento = "",
+                            Estado = "SP",
+                            Numero = "140",
+                            Rua = "Avenida Baldan"
+                        });
                 });
 
             modelBuilder.Entity("Models.RegistroInfestacao", b =>
@@ -765,6 +1007,80 @@ namespace FazendaAPI.Migrations
                     b.HasIndex("EnderecoId");
 
                     b.ToTable("Usuario");
+
+                    b.HasData(
+                        new
+                        {
+                            CPF = "43625350807",
+                            Ativo = true,
+                            DataNascimento = new DateTime(2003, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "maria.luiza@gmail.com",
+                            EnderecoId = "15997440120",
+                            NomeCompleto = "Maria Luiza Guedes",
+                            Senha = "malu123",
+                            Telefone = "16 992663385",
+                            Tipo = "Administrador"
+                        },
+                        new
+                        {
+                            CPF = "44416401884",
+                            Ativo = true,
+                            DataNascimento = new DateTime(2003, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "rian.ortega@gmail.com",
+                            EnderecoId = "159970101264",
+                            NomeCompleto = "Rian Ortega",
+                            Senha = "rian123",
+                            Telefone = "16 992663385",
+                            Tipo = "Agricultor"
+                        },
+                        new
+                        {
+                            CPF = "47584609831",
+                            Ativo = true,
+                            DataNascimento = new DateTime(1998, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "amanda.ferreira@gmail.com",
+                            EnderecoId = "14820768140",
+                            NomeCompleto = "Amanda Ferreira",
+                            Senha = "amanda123",
+                            Telefone = "16 992663385",
+                            Tipo = "Administrador"
+                        },
+                        new
+                        {
+                            CPF = "51005332851",
+                            Ativo = true,
+                            DataNascimento = new DateTime(2000, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "dani.burk@gmail.com",
+                            EnderecoId = "15997060350",
+                            NomeCompleto = "Danielly Burkowski",
+                            Senha = "dani123",
+                            Telefone = "16 992663385",
+                            Tipo = "Agricultor"
+                        },
+                        new
+                        {
+                            CPF = "53913441824",
+                            Ativo = true,
+                            DataNascimento = new DateTime(1998, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "joao.mazz@gmail.com",
+                            EnderecoId = "15993081140",
+                            NomeCompleto = "João Mazzoni",
+                            Senha = "joao123",
+                            Telefone = "+55 16 91234-5678",
+                            Tipo = "Gerente"
+                        },
+                        new
+                        {
+                            CPF = "86135870033",
+                            Ativo = true,
+                            DataNascimento = new DateTime(1998, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "carine.souza@gmail.com",
+                            EnderecoId = "148211642500",
+                            NomeCompleto = "Carine Souza",
+                            Senha = "carine123",
+                            Telefone = "992663385",
+                            Tipo = "Comercial"
+                        });
                 });
 
             modelBuilder.Entity("Fornecedor", b =>
@@ -782,7 +1098,9 @@ namespace FazendaAPI.Migrations
                 {
                     b.HasOne("Fornecedor", "Fornecedor")
                         .WithMany()
-                        .HasForeignKey("FornecedorCNPJ");
+                        .HasForeignKey("FornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Fornecedor");
                 });
@@ -808,7 +1126,9 @@ namespace FazendaAPI.Migrations
                 {
                     b.HasOne("Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("EnderecoId");
+                        .HasForeignKey("EnderecoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Endereco");
                 });

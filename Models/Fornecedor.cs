@@ -16,6 +16,7 @@ public class Fornecedor
     [AllowedValues("Fertilizante", "Agrotoxico", "Adubo", "Geral")]
     public string TipoDeFornecimento { get; set; }
     
+    public string EnderecoId { get; set; }
     public Endereco Endereco { get; set; }
 
     [AllowedValues("Ativo", "Inativo")]

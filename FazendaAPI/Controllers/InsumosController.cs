@@ -144,7 +144,6 @@ namespace FazendaAPI.Controllers
                 return Problem("Entity set 'FazendaAPIContext.Insumo'  is null.");
             }
 
-
             Insumo resultadoInsumo = new Insumo();
             resultadoInsumo.CodigoLote = Guid.NewGuid().ToString().Substring(0, 8).ToUpper().Replace("-", "");
             resultadoInsumo.NomeDoInsumo = insumo.NomeDoInsumo;

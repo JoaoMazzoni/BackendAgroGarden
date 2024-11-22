@@ -11,10 +11,10 @@ namespace Models
         public string RazaoSocial { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string EnderecoId { get; set; }
         public Endereco Endereco { get; set; }
 
         [AllowedValues("Ativo", "Inativo")]
         public string Status { get; set; }
-
     }
 }

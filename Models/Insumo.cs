@@ -10,6 +10,8 @@ public class Insumo
 
     public string Funcao { get; set; }
 
+    public string FornecedorId { get; set; }
+
     public Fornecedor Fornecedor { get; set; }
 
     public int QuantidadeEntrada { get; set; }
